@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "0673ce33-1941-4ea6-89b4-88a4ad78fca9",
+		"name": "Grocery API",
+		"description": "Postman collection for Grocery API endpoints, including controllers.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31560127"
+	},
+	"item": [
+		{
+			"name": "Admin Routes",
+			"item": [
+				{
+					"name": "Get All Groceries",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/admin/groceries"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Grocery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Grocery Name\", \"price\": 10.0, \"inventory\": 100}"
+						},
+						"url": "{{baseUrl}}/admin/groceries"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Grocery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Updated Name\", \"price\": 12.0}"
+						},
+						"url": "{{baseUrl}}/admin/groceries/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Grocery",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/groceries/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"groceries",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Inventory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"inventory\": 50}"
+						},
+						"url": "{{baseUrl}}/admin/groceries/1/inventory"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Routes",
+			"item": [
+				{
+					"name": "List Available Groceries",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/user/groceries"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"items\": [{\"groceryId\": 1, \"quantity\": 2}]}"
+						},
+						"url": "{{baseUrl}}/user/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch User Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/user/orders"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth Routes",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"User Name\",\n    \"email\": \"user1@example.com\",\n    \"password\": \"password123\",\n    \"role\": \"ADMIN\"\n}"
+						},
+						"url": "{{baseUrl}}auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user1@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": "{{baseUrl}}/auth/login"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

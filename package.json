@@ -1,0 +1,29 @@
+{
+    "name": "grocery-booking-api",
+    "version": "1.0.0",
+    "description": "Grocery Booking API using Node.js, TypeScript, Express, MySQL, and MikroORM",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "node dist/index.js",
+        "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/index.ts",
+        "build": "tsc -b"
+    },
+    "dependencies": {
+        "@mikro-orm/core": "^6.0.0",
+        "@mikro-orm/migrations": "^6.4.13",
+        "@mikro-orm/mysql": "^6.0.0",
+        "bcryptjs": "^2.4.3",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.0"
+    },
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.2",
+        "@types/express": "^4.17.21",
+        "@types/jsonwebtoken": "^9.0.2",
+        "@types/node": "^20.8.10",
+        "ts-node": "^10.9.1",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.2.2"
+    }
+}
